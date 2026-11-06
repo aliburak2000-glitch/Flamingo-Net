@@ -1,0 +1,365 @@
+[index.html](https://github.com/user-attachments/files/34504659/index.html)
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flamingo İnternet Cafe - Yenikent (2009'dan Beri)</title>
+    <style>
+        :root {
+            --bg-color: #0d0d11;
+            --card-bg: #14141c;
+            --primary-color: #ff3366; /* Flamingo Pembesi */
+            --classic-gold: #dfb76c;  /* Esnaf Sarısı/Altını */
+            --text-color: #ffffff;
+            --text-secondary: #b3b3b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Üst Menü */
+        header {
+            background-color: #14141c;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--classic-gold);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .logo small {
+            font-size: 0.75rem;
+            color: var(--classic-gold);
+            display: block;
+            letter-spacing: 1px;
+            font-weight: normal;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--classic-gold);
+        }
+
+        /* Ana Karşılama Alanı */
+        .hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            background: linear-gradient(rgba(13, 13, 17, 0.9), #0d0d11), url('https://unsplash.com') no-repeat center center/cover;
+            margin-top: 60px;
+            border-bottom: 1px solid #222230;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: transparent;
+            color: var(--classic-gold);
+            border: 2px solid var(--classic-gold);
+            padding: 0.6rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: var(--classic-gold);
+            color: var(--bg-color);
+        }
+
+        /* Bölümler */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: var(--classic-gold);
+        }
+
+        /* Hakkımızda */
+        .about-box {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 4px;
+            border: 1px solid #222230;
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-box p {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        /* Bilgisayarlar Listesi */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2rem 1.5rem;
+            border-radius: 4px;
+            border: 1px solid #1f1f2e;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: var(--classic-gold);
+            border-bottom: 1px solid #222230;
+            padding-bottom: 0.4rem;
+        }
+
+        .card .set-count {
+            display: block;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.8rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--classic-gold);
+        }
+
+        /* Fiyat Tablosu */
+        .price-container {
+            background-color: var(--card-bg);
+            border: 1px solid #1f1f2e;
+            border-radius: 4px;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #222230;
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-name {
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .price-name small {
+            display: block;
+            color: var(--text-secondary);
+            font-weight: normal;
+            font-size: 0.85rem;
+            margin-top: 0.1rem;
+        }
+
+        .price-value {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: var(--classic-gold);
+            border: 1px dashed var(--classic-gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        /* Kurallar */
+        .rule-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rule-list li {
+            background-color: var(--card-bg);
+            margin-bottom: 0.6rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        .drink-text {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Diğer İşlemler */
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* İletişim */
+        .contact-box {
+            background-color: var(--card-bg);
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            border-radius: 4px;
+            border: 1px solid #1f1f2e;
+            text-align: center;
+        }
+
+        .contact-box p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-box strong {
+            color: var(--classic-gold);
+        }
+
+        footer {
+            background-color: #050507;
+            text-align: center;
+            padding: 1.5rem;
+            color: #555555;
+            border-top: 1px solid #14141c;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .price-row { flex-direction: column; text-align: center; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst Menü -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                🦩 FLAMINGO<span> İNTERNET CAFE</span>
+                <small>YENİKENT • 2009'DAN BERİ</small>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#bilgisayarlar">Masalarımız</a></li>
+                <li><a href="#ucretler">Ücretler</a></li>
+                <li><a href="#kurallar">Kafe Kuralları</a></li>
+                <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Karşılama Alanı -->
+    <section class="hero">
+        <h1>Yenikent'in Klasik <span>İnternet Kafesi</span></h1>
+        <p>2009 yılından bu yana değişmeyen esnaf samimiyeti, temiz ortamı ve güncel bilgisayar sistemleri ile hizmetinizdeyiz.</p>
+        <a href="#iletisim" class="btn">İletişim Bilgileri</a>
+    </section>
+
+    <!-- Hakkımızda -->
+    <section id="hakkimizda">
+        <h2 class="section-title">Hakkımızda</h2>
+        <div class="about-box">
