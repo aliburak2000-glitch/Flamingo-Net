@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flamingo İnternet Cafe & Gaming Center</title>
+    <title>Flamingo İnternet Cafe - Yenikent (2009'dan Beri)</title>
     <style>
         :root {
-            --bg-color: #0f0f12;
-            --card-bg: #1a1a24;
+            --bg-color: #0d0d11;
+            --card-bg: #14141c;
             --primary-color: #ff3366; /* Flamingo Pembesi */
+            --classic-gold: #dfb76c;  /* Esnaf Sarısı/Altını */
             --text-color: #ffffff;
-            --text-secondary: #a0a0b0;
+            --text-secondary: #b3b3b3;
         }
 
         * {
@@ -27,18 +28,18 @@
             line-height: 1.6;
         }
 
-        /* Navigasyon */
+        /* Üst Menü */
         header {
-            background-color: rgba(26, 26, 36, 0.95);
+            background-color: #14141c;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 2px solid var(--classic-gold);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -47,46 +48,60 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--text-color);
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .logo small {
+            font-size: 0.75rem;
+            color: var(--classic-gold);
+            display: block;
+            letter-spacing: 1px;
+            font-weight: normal;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .nav-menu a {
             color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s;
         }
 
         .nav-menu a:hover {
-            color: var(--primary-color);
+            color: var(--classic-gold);
         }
 
-        /* Hero Alanı */
+        /* Ana Karşılama Alanı */
         .hero {
-            height: 70vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 1rem;
-            background: linear-gradient(rgba(15, 15, 18, 0.7), #0f0f12), url('https://unsplash.com') no-repeat center center/cover;
+            background: linear-gradient(rgba(13, 13, 17, 0.9), #0d0d11), url('https://unsplash.com') no-repeat center center/cover;
             margin-top: 60px;
+            border-bottom: 1px solid #222230;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
         }
 
@@ -95,241 +110,255 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 800px;
             margin-bottom: 2rem;
         }
 
         .btn {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.8rem 2rem;
+            background-color: transparent;
+            color: var(--classic-gold);
+            border: 2px solid var(--classic-gold);
+            padding: 0.6rem 2rem;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 5px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+            background-color: var(--classic-gold);
+            color: var(--bg-color);
         }
 
-        /* Bölümler Genel */
+        /* Bölümler */
         section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
+            padding: 4rem 2rem;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
             text-transform: uppercase;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 10px auto 0;
+        .section-title span {
+            color: var(--classic-gold);
         }
 
-        /* Özellikler ve Donanım */
+        /* Hakkımızda */
+        .about-box {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 4px;
+            border: 1px solid #222230;
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-box p {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        /* Bilgisayarlar Listesi */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
         }
 
         .card {
             background-color: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-            border: 1px solid #252535;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
+            padding: 2rem 1.5rem;
+            border-radius: 4px;
+            border: 1px solid #1f1f2e;
         }
 
         .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: var(--classic-gold);
+            border-bottom: 1px solid #222230;
+            padding-bottom: 0.4rem;
+        }
+
+        .card .set-count {
+            display: block;
             color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
         }
 
-        .card p {
+        .card ul {
+            list-style: none;
             color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
-        /* Fiyat Listesi */
-        .price-list {
+        .card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.8rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--classic-gold);
+        }
+
+        /* Fiyat Tablosu */
+        .price-container {
             background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            max-width: 600px;
+            border: 1px solid #1f1f2e;
+            border-radius: 4px;
+            max-width: 700px;
             margin: 0 auto;
-            border: 1px solid #252535;
+            padding: 1.5rem;
         }
 
-        .price-item {
+        .price-row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 1rem 0;
-            border-bottom: 1px solid #252535;
+            border-bottom: 1px solid #222230;
         }
 
-        .price-item:last-child {
+        .price-row:last-child {
             border-bottom: none;
         }
 
         .price-name {
+            font-size: 1.05rem;
             font-weight: bold;
+            color: #ffffff;
         }
 
-        .price-amount {
-            color: var(--primary-color);
+        .price-name small {
+            display: block;
+            color: var(--text-secondary);
+            font-weight: normal;
+            font-size: 0.85rem;
+            margin-top: 0.1rem;
+        }
+
+        .price-value {
+            font-size: 1.15rem;
             font-weight: bold;
+            color: var(--classic-gold);
+            border: 1px dashed var(--classic-gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        /* Kurallar */
+        .rule-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rule-list li {
+            background-color: var(--card-bg);
+            margin-bottom: 0.6rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        .drink-text {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Diğer İşlemler */
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
         }
 
         /* İletişim */
-        .contact-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
+        .contact-box {
+            background-color: var(--card-bg);
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            border-radius: 4px;
+            border: 1px solid #1f1f2e;
             text-align: center;
         }
 
-        .contact-info p {
+        .contact-box p {
             margin-bottom: 1rem;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
 
-        .contact-info strong {
-            color: var(--primary-color);
+        .contact-box strong {
+            color: var(--classic-gold);
         }
 
         footer {
-            background-color: #0a0a0d;
+            background-color: #050507;
             text-align: center;
-            padding: 2rem;
-            color: var(--text-secondary);
-            border-top: 1px solid #252535;
-            font-size: 0.9rem;
+            padding: 1.5rem;
+            color: #555555;
+            border-top: 1px solid #14141c;
+            font-size: 0.85rem;
+            margin-top: 3rem;
         }
 
         @media (max-width: 768px) {
             .nav-menu { display: none; }
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .price-row { flex-direction: column; text-align: center; gap: 0.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigasyon -->
+    <!-- Üst Menü -->
     <header>
         <div class="nav-container">
-            <div class="logo">🦩 Flamingo Gaming</div>
+            <div class="logo">
+                🦩 FLAMINGO<span> İNTERNET CAFE</span>
+                <small>YENİKENT • 2009'DAN BERİ</small>
+            </div>
             <ul class="nav-menu">
-                <li><a href="#donanim">Donanım</a></li>
-                <li><a href="#fiyatlar">Ücretler</a></li>
-                <li><a href="#hizmetler">Hizmetler</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#bilgisayarlar">Masalarımız</a></li>
+                <li><a href="#ucretler">Ücretler</a></li>
+                <li><a href="#kurallar">Kafe Kuralları</a></li>
+                <li><a href="#hizmetler">Hizmetlerimiz</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- Hero Alanı -->
+    <!-- Karşılama Alanı -->
     <section class="hero">
-        <h1>Flamingo <span>Gaming Center</span></h1>
-        <p>Sincan Yenikent'te yüksek performanslı bilgisayarlar, VIP salon konforu ve kesintisiz oyun deneyiminin adresi!</p>
-        <a href="#iletisim" class="btn">Yol Tarifi Al</a>
+        <h1>Yenikent'in Klasik <span>İnternet Kafesi</span></h1>
+        <p>2009 yılından bu yana değişmeyen esnaf samimiyeti, temiz ortamı ve güncel bilgisayar sistemleri ile hizmetinizdeyiz.</p>
+        <a href="#iletisim" class="btn">İletişim Bilgileri</a>
     </section>
 
-    <!-- Donanım -->
-    <section id="donanim">
-        <h2 class="section-title">Güçlü Donanım</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>VIP Alanı</h3>
-                <p>En son nesil ekran kartları, 240Hz oyuncu monitörleri ve profesyonel mekanik ekipmanlar ile zirve performans.</p>
-            </div>
-            <div class="card">
-                <h3>Standart Salon</h3>
-                <p>Popüler espor oyunlarını (LoL, Valorant, CS2, GTA V) akıcı ve yüksek FPS değerlerinde oynatan sistemler.</p>
-            </div>
-            <div class="card">
-                <h3>Simülasyon</h3>
-                <p>Yarış tutkunları için özel olarak hazırlanmış direksiyon seti alanı ile gerçekçi sürüş deneyimi.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fiyatlar -->
-    <section id="fiyatlar">
-        <h2 class="section-title">Ücret Listesi</h2>
-        <div class="price-list">
-            <div class="price-item">
-                <span class="price-name">Standart Masa (Saatlik)</span>
-                <span class="price-amount">Fiyat Sorunuz</span>
-            </div>
-            <div class="price-item">
-                <span class="price-name">VIP Masa (Saatlik)</span>
-                <span class="price-amount">Fiyat Sorunuz</span>
-            </div>
-            <div class="price-item">
-                <span class="price-name">Direksiyon Seti / Simülatör</span>
-                <span class="price-amount">Fiyat Sorunuz</span>
-            </div>
-            <div class="price-item">
-                <span class="price-name">Gece Paketi (00:00 - 06:00)</span>
-                <span class="price-amount">Fiyat Sorunuz</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hizmetler -->
-    <section id="hizmetler">
-        <h2 class="section-title">Ekstra Hizmetlerimiz</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Mutfak & Kafe</h3>
-                <p>Uzun oyun seanslarında enerjinizi tazeleyecek sıcak/soğuk içecekler, tost ve atıştırmalık çeşitleri.</p>
-            </div>
-            <div class="card">
-                <h3>Bilgisayar Teknik</h3>
-                <p>İşletmemiz bünyesinde bilgisayar toplama, bakım, onarım ve sarf malzemeleri temini hizmeti.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- İletişim -->
-    <section id="iletisim">
-        <h2 class="section-title">İletişim & Konum</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <p><strong>Adres:</strong> 29 Ekim, Mevlana Cd., 06946 Sincan / Ankara (Yenikent)</p>
-                <p><strong>Telefon:</strong> +90 541 635 06 84</p>
-                <p><strong>Çalışma Saatleri:</strong> 09:00 - 02:00 (Haftanın Her Günü)</p>
-            </div>
-            <a href="https://google.com" target="_blank" class="btn">Google Haritalarda Aç</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Flamingo İnternet Cafe & Gaming Center. Tüm hakları saklıdır.</p>
-    </footer>
-
-</body>
-</html>
+    <!-- Hakkımızda -->
+    <section id="hakkimizda">
+        <h2 class="section-title">Hakkımızda</h2>
+        <div class="about-box">
