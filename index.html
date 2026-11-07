@@ -18,25 +18,30 @@ html
         .menu { display: flex; list-style: none; gap: 1rem; }
         .menu a { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
         .menu a:hover { color: var(--gold); }
-        .hero { height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1rem; background: linear-gradient(rgba(0,0,0,0.8), var(--bg)), url('https://unsplash.com') no-repeat center/cover; }
+        .hero { height: 45vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1rem; background: linear-gradient(rgba(0,0,0,0.85), var(--bg)), url('https://unsplash.com') no-repeat center center/cover; }
         .hero h1 span { color: var(--pink); }
         .hero p { color: #b3b3b3; margin: 1rem 0; max-width: 600px; }
         section { padding: 4rem 1rem; max-width: 1100px; margin: 0 auto; }
         .title { text-align: center; font-size: 1.8rem; margin-bottom: 2rem; text-transform: uppercase; color: var(--gold); }
         .box { background: var(--card); padding: 2rem; border-radius: 4px; border: 1px solid #222230; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; }
-        .card { background: var(--card); padding: 1.5rem; border-radius: 4px; border: 1px solid #1f1f2e; }
-        .card h3 { color: var(--gold); margin-bottom: 0.5rem; font-size: 1.1rem; border-bottom: 1px solid #222230; padding-bottom: 0.3rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--card); border-radius: 6px; border: 1px solid #1f1f2e; overflow: hidden; padding-bottom: 1.5rem; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--pink); }
+        .card-img { width: 100%; height: 160px; object-fit: cover; border-bottom: 1px solid #1f1f2e; }
+        .card-content { padding: 1.2rem; }
+        .card h3 { color: var(--gold); margin-bottom: 0.3rem; font-size: 1.1rem; padding-bottom: 0.3rem; }
         .card span { color: var(--pink); font-size: 0.8rem; font-weight: bold; display: block; margin-bottom: 0.8rem; }
         .card ul { list-style: none; color: #b3b3b3; font-size: 0.9rem; text-align: left; }
         .card ul li { margin-bottom: 0.4rem; }
         .p-con { background: var(--card); border: 1px solid #1f1f2e; max-width: 600px; margin: 0 auto; padding: 1.5rem; }
-        .p-row { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid #222230; }
+        .p-row { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid #222230; align-items: center; }
         .p-row:last-child { border-bottom: none; }
         .p-val { color: var(--gold); font-weight: bold; border: 1px dashed var(--gold); padding: 0.2rem 0.6rem; border-radius: 4px; }
         .rules { max-width: 700px; margin: 0 auto; text-align: left; list-style: none; }
         .rules li { background: var(--card); margin-bottom: 0.5rem; padding: 0.8rem; border-left: 4px solid var(--pink); font-size: 0.9rem; }
+        .drink-text { text-align: center; font-size: 1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.5rem; }
         footer { text-align: center; padding: 2rem; color: #555; border-top: 1px solid #14141c; margin-top: 2rem; font-size: 0.8rem; }
+        @media (max-width: 768px) { .menu { display: none; } .hero h1 { font-size: 2rem; } .p-row { flex-direction: column; gap: 0.5rem; } }
     </style>
 </head>
 <body>
@@ -49,7 +54,7 @@ html
                 <li><a href="#masalar">Masalarımız</a></li>
                 <li><a href="#ucretler">Ücretler</a></li>
                 <li><a href="#kurallar">Kurallar</a></li>
-                <li><a href="#iletisim">İleçişim</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
             </ul>
         </div>
     </header>
@@ -69,47 +74,64 @@ html
     <section id="masalar">
         <h2 class="title">Masalarımız</h2>
         <div class="grid">
+            
             <div class="card">
-                <h3>Simülasyon Alanı</h3>
-                <span>[ 5 SET MEVCUT ]</span>
-                <ul>
-                    <li>• 55" 4K Dev Ekran</li>
-                    <li>• DKM Racing Kokpit</li>
-                    <li>• G29 Direksiyon Seti</li>
-                    <li>• TH8S Profesyonel Vites</li>
-                    <li>• R5 2600 / 32GB RAM / GTX 1060</li>
-                </ul>
+                <img class="card-img" src="https://unsplash.com" alt="Simülasyon">
+                <div class="card-content">
+                    <h3>Simülasyon Alanı</h3>
+                    <span>[ 5 SET MEVCUT ]</span>
+                    <ul>
+                        <li>• 55" 4K Dev Ekran</li>
+                        <li>• DKM Racing Kokpit</li>
+                        <li>• G29 Direksiyon Seti</li>
+                        <li>• TH8S Profesyonel Vites</li>
+                        <li>• R5 2600 / 32GB RAM / GTX 1060</li>
+                    </ul>
+                </div>
             </div>
+
             <div class="card">
-                <h3>Üst Seviye (VIP)</h3>
-                <span>[ 4 SET MEVCUT ]</span>
-                <ul>
-                    <li>• 27" Curved 240 Hz Monitör</li>
-                    <li>• Ryzen 5 5600 İşlemci</li>
-                    <li>• 16 GB Yüksek Hızlı RAM</li>
-                    <li>• RTX 3070 Ti 8GB Ekran Kartı</li>
-                </ul>
+                <img class="card-img" src="https://unsplash.com" alt="VIP Masalar">
+                <div class="card-content">
+                    <h3>Üst Seviye (VIP)</h3>
+                    <span>[ 4 SET MEVCUT ]</span>
+                    <ul>
+                        <li>• 27" Curved 240 Hz Monitör</li>
+                        <li>• Ryzen 5 5600 İşlemci</li>
+                        <li>• 16 GB Yüksek Hızlı RAM</li>
+                        <li>• RTX 3070 Ti 8GB Ekran Kartı</li>
+                    </ul>
+                </div>
             </div>
+
             <div class="card">
-                <h3>Orta Seviye</h3>
-                <span>[ 6 SET MEVCUT ]</span>
-                <ul>
-                    <li>• 27" Curved 144 Hz Monitör</li>
-                    <li>• Ryzen 5 5600 İşlemci</li>
-                    <li>• 16 GB Oyuncu RAM</li>
-                    <li>• RTX 2060 Super 6GB Kart</li>
-                </ul>
+                <img class="card-img" src="https://unsplash.com" alt="Orta Seviye">
+                <div class="card-content">
+                    <h3>Orta Seviye</h3>
+                    <span>[ 6 SET MEVCUT ]</span>
+                    <ul>
+                        <li>• 27" Curved 144 Hz Monitör</li>
+                        <li>• Ryzen 5 5600 İşlemci</li>
+                        <li>• 16 GB Oyuncu RAM</li>
+                        <li>• RTX 2060 Super 6GB Kart</li>
+                    </ul>
+                </div>
             </div>
+
             <div class="card">
-                <h3>Giriş Seviyesi</h3>
-                <span>[ 10 SET MEVCUT ]</span>
-                <ul>
-                    <li>• 27" Curved 75 Hz Monitör</li>
-                    <li>• Intel i3 9100F İşlemci</li>
-                    <li>• 8 GB Sistem RAM</li>
-                    <li>• RX 480 8GB Ekran Kartı</li>
-                </ul>
+                <img class="card-img" src="https://unsplash.com" alt="Giriş Seviyesi">
+                <div class="card-content">
+                    <h3>Giriş Seviyesi</h3>
+                    <span>[ 10 SET MEVCUT ]</span>
+                    <ul>
+                        <li>• 27" Curved 75 Hz Monitör</li>
+                        <li>• Intel i3 9100F İşlemci</li>
+                        <li>• 8 GB Sistem RAM</li>
+                        <li>• RX 480 8GB Ekran Kartı</li>
+                    </ul>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -123,7 +145,7 @@ html
         </div>
     </section>
 
-    <section id="kurallar">
+    <section id="kurRules">
         <h2 class="title">Kafe Kurallarımız</h2>
         <ul class="rules">
             <li>⏳ <b>Süre Takibi:</b> Süresi biten masayı vaktinde boşaltır, uzatmak isteyen masadan kalkmadan bildirir.</li>
@@ -137,7 +159,7 @@ html
         <h2 class="title">İletişim & Konum</h2>
         <div class="box">
             <p style="margin-bottom:0.8rem;"><b>Adres:</b> 29 Ekim Mahallesi, Mevlana Caddesi, Sincan / Ankara (Yenikent Merkez)</p>
-            <p style="margin-bottom:0.8rem;"><b>Telefon:</b> +90 541 635 06 84</p>
+            <p style="margin-bottom:0.8rem;"><b>Telefon:</b> +90 544 228 30 77</p>
             <p style="margin-bottom:1.5rem;"><b>Çalışma Saatleri:</b> Haftanın Her Günü 11:00 - 22:00</p>
             <p style="color:var(--pink); font-style:italic; margin-bottom:1.5rem;">Uzun oyun seanslarında içinizi serinletecek buz gibi soğuk içecek çeşitlerimiz dolapta hazırdır!</p>
             <p style="color:var(--gold); margin-bottom:1.5rem;">Ayrıca bütçenize göre PC toplama, sarf malzeme temini ve yazıcı çıktı işleriniz yapılır.</p>
